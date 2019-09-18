@@ -10,3 +10,6 @@ Create an application that demonstrates the basics of Java Lambda Expressions:
 5.) No Parameter interface
 6.) Single Parameter interface. What can you omit when defining this Lambda.
 7.) Can you have interfaces with multiple methods?
+
+mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=my-app \ 
+-DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4
