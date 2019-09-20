@@ -1,5 +1,5 @@
 package com.bascomb;
 
 public interface PowerLevel {
-    String printPowerLevel();
+    String printPowerLevel(int x);
 }
