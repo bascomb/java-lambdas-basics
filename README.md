@@ -14,10 +14,13 @@ interface with one method and setting it to variable.
 -powerLevelLamdaTest
 4.) Multiple parameter Interface.
 --racquetLamdaTest
-5.) No Parameter interface
-6.) Single Parameter interface. What can you omit when defining this Lambda.
-7.) Can you have interfaces with multiple methods?
-8.)Does there have to be an interface?
+5.)No parameter interface
+8.) Can an interface have fields
+9.) Can an functional interface have more than one method.
+-One abstract method. Many default and static methods.
+Demonstrate by defining and using one default method and one static method.
+FuncInterface.java
+
 
 mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=my-app \ 
 -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4

@@ -10,6 +10,24 @@ import org.junit.Test;
  */
 public class AppTest 
 {
+    @Test
+    public void testFuncIntDefaultStaticMeth() {
+        String input = "repeat";
+        FuncInterface funcInterface = (String s) -> {
+            s = s + " " + s;
+            return s;
+        };
+
+        Integer n = funcInterface.defaultNumber(10);
+
+        System.out.println("Default Method - " + n);
+
+        System.out.println("Static Method -> " + FuncInterface.staticText(input));
+
+        String actual = funcInterface.function(input);
+
+        assertEquals(input + " " + input, actual);
+    }
     /**
      *ß
      */
@@ -55,7 +73,7 @@ public class AppTest
         int racquetOne = 1000;
         int racquetTwo = 1000;
 
-        ComparePowerLevel comparePowerLevel = (one, two) -> { return 0;};
+        ComparePowerLevel comparePowerLevel = (one, two) -> 0;
 
         assertEquals(0, comparePowerLevel.compare(racquetOne,racquetTwo));
     }
