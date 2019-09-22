@@ -10,6 +10,83 @@ import org.junit.Test;
  */
 public class AppTest 
 {
+    static String varStatic = "static";
+
+    private String varMember = "member";
+
+    @Test
+    public void testAnonymousClassExtras() {
+
+        ComplexInterface complexInterface = new ComplexInterface() {
+
+            @Override
+            public boolean isTrue(boolean b) {
+                return b;
+            }
+
+            @Override
+            public boolean isFalse(boolean b) {
+                return !b;
+            }
+        };
+
+        assertTrue(complexInterface.isTrue(true));
+
+        assertTrue(complexInterface.isFalse(false));
+
+    }
+
+    @Test
+    public void testComplexInterfaceImpl() {
+
+        ComplexInterface complexInterface = new ComplexInterfaceImpl();
+        //access field of complexinterfaceimpl?
+        ///complexInterface.hasField(); doesnt work
+        assertTrue(complexInterface.isTrue(true));
+        assertTrue(complexInterface.isFalse(false));
+    }
+
+    //Edit member variable between invocations.
+    @Test
+    public void testMemberVariableCapture() {
+
+        FuncInterface funcInterface = (String s) -> {
+            return varMember;
+        };
+
+        assertEquals(varMember, funcInterface.function(""));
+
+        //edit member variable
+        varMember = "newmember";
+        assertEquals(varMember, funcInterface.function(""));
+    }
+
+    //Edit static variable between invocations.
+    @Test
+    public void testLocalVariableCapture() {
+        FuncInterface funcInterface = (String s) -> {
+            return varStatic;
+        };
+
+        assertEquals(varStatic, funcInterface.function(""));
+
+        //edit member variable
+        varStatic = "newStatic";
+        assertEquals(varStatic, funcInterface.function(""));
+
+    }
+
+    @Test
+    public void testStaticVariableCapture() {
+        final String input = "local";
+
+        FuncInterface funcInterface = (String s) -> {
+            return input;
+        };
+
+        assertEquals(input, funcInterface.function(""));
+    }
+
     @Test
     public void testFuncIntDefaultStaticMeth() {
         String input = "repeat";
